@@ -1,1355 +1,980 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pandi Regun — Jurnal Jiwa Kreatif & Pertumbuhan Digital</title>
-    
-    <meta name="description" content="Rumah digital Pandi Regun. Sebuah ruang dokumentasi hidup tempat belajar coding, meriset AI, bereksperimen dengan konten, dan bertumbuh bareng komunitas internet.">
-    <meta name="keywords" content="Pandi Regun, Digital Creator, Digital Preanure, Content Creator, Personal Branding, AI Explorer">
-    <meta name="author" content="Pandi Regun">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ──────────────── SYSTEM VARIABLES ──────────────── */
-        :root {
-            /* Skema Warna Late-Night Cyberpunk Lembut */
-            --bg-deep: #050816;
-            --bg-mid: #080b14;
-            --bg-surface: #0b1120;
-            --bg-card: rgba(11, 17, 32, 0.45);
-            --bg-card-hover: rgba(15, 23, 42, 0.75);
-            
-            /* Tri-Atmosfer Gradasi */
-            --purple: #8b5cf6;
-            --purple-glow: rgba(139, 92, 246, 0.25);
-            --purple-soft: rgba(139, 92, 246, 0.1);
-            
-            --orange: #f97316;
-            --orange-glow: rgba(249, 115, 22, 0.25);
-            --orange-soft: rgba(249, 115, 22, 0.1);
-            
-            --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.2);
-            --green-soft: rgba(34, 197, 94, 0.08);
-            
-            /* Tipografi & Batasan Garis */
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border-subtle: rgba(255, 255, 255, 0.05);
-            --border-glow: rgba(139, 92, 246, 0.2);
-            
-            /* Tingkat Kelengkungan / Radius */
-            --radius-sm: 10px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
-            
-            /* Animasi & Transisi Lembut */
-            --nav-height: 64px;
-            --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-            --font-display: 'Inter', system-ui, -apple-system, sans-serif;
-            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-        }
+  <!-- ==================== META DASAR & VIEWPORT ==================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FF7A00" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0B1220" media="(prefers-color-scheme: dark)" />
 
-        /* ──────────────── RESET BARIS DASAR ──────────────── */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <!-- ==================== SEO DASAR ==================== -->
+  <title>Pandi Regun — Belajar Bareng, Tumbuh Bareng</title>
+  <meta name="description" content="Pandi Regun adalah ruang belajar terbuka yang mendokumentasikan perjalanan memahami teknologi, kreativitas, personal branding, dan dunia digital agar lebih banyak orang dapat belajar dan bertumbuh bersama.">
+  <meta name="keywords" content="Pandi Regun, Belajar Digital, Personal Branding, Web Development, Teknologi, Artificial Intelligence, Blogging, Konten Kreator, Komunitas Belajar">
+  <meta name="author" content="Pandi Regun">
+  <link rel="canonical" href="https://pandiregun.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            -webkit-tap-highlight-color: transparent;
-        }
+  <!-- ==================== LOKASI & BAHASA ==================== -->
+  <meta name="language" content="id">
+  <meta name="geo.region" content="ID">
+  <meta name="geo.placename" content="Indonesia">
+  <meta name="geo.country" content="id">
 
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-deep);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            background-image:
-                radial-gradient(ellipse at 20% 15%, rgba(139, 92, 246, 0.09) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 40%, rgba(249, 115, 22, 0.06) 0%, transparent 55%),
-                radial-gradient(ellipse at 40% 75%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
-            background-attachment: fixed;
-        }
+  <!-- ==================== OPEN GRAPH (FACEBOOK/LINKEDIN) ==================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pandiregun.com/">
+  <meta property="og:title" content="Pandi Regun — Belajar Bareng, Tumbuh Bareng">
+  <meta property="og:description" content="Ruang belajar terbuka yang mendokumentasikan eksperimen teknologi, dari arsitektur web, pengembangan sistem, hingga mobile development.">
+  <meta property="og:image" content="https://pandiregun.com/assets/images/og-image.webp">
+  <meta property="og:image:alt" content="Ilustrasi ruang kerja digital Pandi Regun">
+  <meta property="og:locale" content="id_ID">
 
-        body.menu-open {
-            overflow: hidden;
-            touch-action: none;
-        }
+  <!-- ==================== TWITTER CARD ==================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pandi Regun — Belajar Bareng, Tumbuh Bareng">
+  <meta name="twitter:description" content="Ruang belajar terbuka yang mendokumentasikan perjalanan memahami teknologi dan dunia digital.">
+  <meta name="twitter:image" content="https://pandiregun.com/assets/images/og-image.webp">
+  <meta name="twitter:creator" content="@pandiregun">
 
-        /* Digital Canvas Grid Overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-            background-size: 44px 44px;
-            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-        }
+  <!-- ==================== JSON-LD (SCHEMA.ORG) ==================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://pandiregun.com/#person",
+        "name": "Pandi Regun",
+        "alternateName": "Pandiregun",
+        "url": "https://pandiregun.com/",
+        "description": "Digital learner, builder, content creator, dan dokumentator perjalanan belajar teknologi.",
+        "jobTitle": ["Content Creator", "Web Developer"],
+        "knowsAbout": [
+          "Web Development", "Website Development", "PHP",
+          "Software Architecture", "Artificial Intelligence",
+          "Mobile Application Development", "Content Creation",
+          "Personal Branding", "Blogging"
+        ],
+        "sameAs": [
+          "https://instagram.com/pandiregun",
+          "https://youtube.com/@pandiregun",
+          "https://tiktok.com/@pandiregun",
+          "https://x.com/pandiregun",
+          "https://t.me/pandiregun",
+          "https://blog.pandiregun.com"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://pandiregun.com/#website",
+        "url": "https://pandiregun.com/",
+        "name": "Pandi Regun",
+        "description": "Belajar Bareng, Tumbuh Bareng.",
+        "publisher": { "@id": "https://pandiregun.com/#person" },
+        "inLanguage": "id-ID"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://pandiregun.com/#organization",
+        "name": "Pandi Regun",
+        "url": "https://pandiregun.com/",
+        "description": "Komunitas belajar dan dokumentasi perjalanan digital.",
+        "founder": { "@id": "https://pandiregun.com/#person" }
+      }
+    ]
+  }
+  </script>
 
-        /* ──────────────── AMBIENT ORBS ANIMATION ──────────────── */
-        .ambient-orbs {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.25;
-            animation: orbSlowDrift 22s ease-in-out infinite;
-        }
-        .orb--1 { width: 400px; height: 400px; background: var(--purple); top: -12%; left: -8%; }
-        .orb--2 { width: 320px; height: 320px; background: var(--orange); top: 35%; right: -10%; animation-delay: -6s; animation-duration: 26s; }
-        .orb--3 { width: 280px; height: 280px; background: var(--green); bottom: -8%; left: 20%; animation-delay: -12s; }
-        
-        @keyframes orbSlowDrift {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, -40px) scale(1.12); }
-        }
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-        /* Dark Mobile Blur Backdrop Overlay */
-        .mobile-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(3, 5, 13, 0.7);
-            z-index: 998;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity var(--transition-smooth);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-        }
-        .mobile-overlay.active { opacity: 1; pointer-events: auto; }
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FF7A00'/%3E%3Cstop offset='1' stop-color='%237C3AED'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Outfit,sans-serif' font-weight='800' font-size='34' fill='white'%3EP%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-        /* ──────────────── FLOATING NAVBAR ──────────────── */
-        .navbar {
-            position: fixed;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 32px);
-            max-width: 760px;
-            height: var(--nav-height);
-            background: rgba(11, 17, 32, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-subtle);
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            z-index: 1000;
-            transition: all var(--transition-smooth);
-        }
-        .navbar.scrolled {
-            background: rgba(8, 11, 20, 0.9);
-            border-color: var(--border-glow);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 40px var(--purple-soft);
-        }
-        .nav-brand {
-            font-weight: 700;
-            font-size: 1.05rem;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 1001;
-        }
-        .nav-brand-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--purple);
-            box-shadow: 0 0 12px var(--purple-glow);
-            animation: pulseGlow 3s ease-in-out infinite;
-        }
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 8px var(--purple-glow); opacity: 0.8; }
-            50% { box-shadow: 0 0 20px var(--purple-glow), 0 0 30px rgba(139, 92, 246, 0.4); opacity: 1; }
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 4px;
-            align-items: center;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 50px;
-            transition: all var(--transition-smooth);
-        }
-        .nav-links a:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.04);
-        }
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 20px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: all var(--transition-smooth);
-        }
-        .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-toggle.active span:nth-child(2) { opacity: 0; }
-        .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+<!-- ==================== FAVICON ==================== -->
+<link rel="icon" type="image/png" href="assets/logo/pandiregun-logo-512.png">
 
-        /* ──────────────── STRUKTUR SECTION UMUM ──────────────── */
-        .section {
-            position: relative;
-            z-index: 1;
-            padding: 90px 24px;
-            max-width: 860px;
-            margin: 0 auto;
-        }
-        .section-label {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--orange);
-            margin-bottom: 14px;
-            background: var(--orange-soft);
-            padding: 6px 16px;
-            border-radius: 50px;
-            border: 1px solid rgba(249, 115, 22, 0.15);
-        }
-        .section-title {
-            font-size: clamp(1.6rem, 4.5vw, 2.4rem);
-            font-weight: 800;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-        .section-subtitle {
-            color: var(--text-secondary);
-            max-width: 560px;
-            font-size: 0.98rem;
-            line-height: 1.65;
-            margin-bottom: 40px;
-        }
+<link rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="assets/logo/pandiregun-logo-512.png">
 
-        /* ──────────────── HERO ARCHITECTURE (MASIF & IMERSIF) ──────────────── */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 150px 24px 80px;
-        }
-        .hero-inner { 
-            max-width: 720px; 
-            position: relative;
-        }
-        
-        /* Status Badge Melayang */
-        .hero-status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--green);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--green);
-            animation: statusPulse 2s infinite ease-in-out;
-        }
-        @keyframes statusPulse {
-            0%, 100% { transform: scale(1); opacity: 0.6; box-shadow: 0 0 6px var(--green); }
-            50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 14px var(--green), 0 0 20px rgba(34, 197, 94, 0.4); }
-        }
+<link rel="apple-touch-icon"
+      href="assets/logo/pandiregun-logo-512.png">
 
-        .hero-avatar-wrap {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 32px;
-        }
-        /* Efek Ring Pendaran Belakang Avatar */
-        .hero-avatar-wrap::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--purple), var(--orange));
-            z-index: 1;
-            opacity: 0.4;
-            filter: blur(12px);
-            animation: rotationGlow 12s linear infinite;
-        }
-        @keyframes rotationGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .hero-avatar {
-            width: 108px;
-            height: 108px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0f172a, #020617);
-            border: 2px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.4rem;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: -1px;
-            position: relative;
-            z-index: 2;
-            box-shadow: inset 0 4px 12px rgba(255, 255, 255, 0.1);
-        }
-        .hero-title {
-            font-size: clamp(2.8rem, 8vw, 4.8rem);
-            font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 1.05;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 70%, #475569 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-subtitle {
-            font-size: clamp(1.15rem, 3.2vw, 1.5rem);
-            color: var(--text-primary);
-            font-weight: 500;
-            margin-bottom: 20px;
-            min-height: 1.5em;
-            letter-spacing: -0.3px;
-        }
-        .hero-subtitle-static {
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-        .hero-subtitle #typedText {
-            color: #fff;
-            position: relative;
-            background: linear-gradient(120deg, var(--purple), var(--orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-        }
-        .hero-subtitle .typed-cursor {
-            color: var(--orange);
-            font-weight: 300;
-            margin-left: 3px;
-            animation: blinker 0.9s step-end infinite;
-        }
-        @keyframes blinker { 50% { opacity: 0; } }
-        
-        .hero-desc {
-            color: var(--text-secondary);
-            font-size: 1.02rem;
-            max-width: 540px;
-            margin: 0 auto 44px;
-            line-height: 1.65;
-        }
-        
-        /* Area Tombol Aksi Hero */
-        .hero-action-group {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, var(--purple), #7c3aed);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.92rem;
-            text-decoration: none;
-            transition: all var(--transition-bounce);
-            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
-        }
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 32px rgba(139, 92, 246, 0.45), 0 0 20px var(--purple-glow);
-        }
-        .hero-cta-arrow { transition: transform var(--transition-smooth); }
-        .hero-cta:hover .hero-cta-arrow { transform: translateX(5px); }
-        
-        .hero-secondary-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            padding: 14px 30px;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.92rem;
-            text-decoration: none;
-            transition: all var(--transition-smooth);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        .hero-secondary-btn:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.15);
-            color: #fff;
-            transform: translateY(-2px);
-        }
 
-        /* ──────────────── ABOUT CARDS SYSTEM ──────────────── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        @media (min-width: 640px) {
-            .about-grid { grid-template-columns: 1fr 1fr; }
-        }
-        .about-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 32px 24px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all var(--transition-smooth);
-        }
-        .about-card:hover {
-            border-color: rgba(249, 115, 22, 0.2);
-            background: var(--bg-card-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-        }
-        .about-card-icon {
-            font-size: 1.6rem;
-            margin-bottom: 14px;
-            display: inline-block;
-            background: rgba(255,255,255,0.03);
-            padding: 8px;
-            border-radius: 12px;
-        }
-        .about-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -0.3px;
-        }
-        .about-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
 
-        /* ──────────────── JOURNEY TIMELINE SYSTEM ──────────────── */
-        .timeline {
-            position: relative;
-            padding-left: 20px;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 4px;
-            bottom: 4px;
-            width: 1px;
-            background: linear-gradient(to bottom, var(--purple), var(--orange), var(--green));
-            opacity: 0.3;
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            padding-left: 20px;
-        }
-        .timeline-dot {
-            position: absolute;
-            left: -19px;
-            top: 8px;
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--purple);
-            box-shadow: 0 0 10px var(--purple-glow);
-        }
-        .timeline-item:nth-child(2) .timeline-dot { background: var(--orange); box-shadow: 0 0 10px var(--orange-glow); }
-        .timeline-item:nth-child(3) .timeline-dot { background: var(--green); box-shadow: 0 0 10px var(--green-glow); }
-        .timeline-item:nth-child(4) .timeline-dot { background: var(--purple); box-shadow: 0 0 10px var(--purple-glow); }
-        
-        .timeline-year {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--purple);
-            letter-spacing: 0.05em;
-            margin-bottom: 4px;
-            font-family: monospace;
-        }
-        .timeline-item:nth-child(2) .timeline-year { color: var(--orange); }
-        .timeline-item:nth-child(3) .timeline-year { color: var(--green); }
-        .timeline-item:nth-child(4) .timeline-year { color: var(--purple); }
-
-        .timeline-title {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 6px;
-            letter-spacing: -0.2px;
-        }
-        .timeline-desc {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* ──────────────── CONTENT ECOSYSTEM SYSTEM ──────────────── */
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
-        }
-        .eco-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 24px 16px;
-            text-align: center;
-            transition: all var(--transition-bounce);
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .eco-card:hover {
-            border-color: var(--border-glow);
-            transform: translateY(-5px);
-            background: var(--bg-card-hover);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.5);
-        }
-        .eco-card-icon {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .eco-card-name { font-weight: 600; font-size: 0.88rem; letter-spacing: -0.1px; }
-        .eco-card-handle { font-size: 0.72rem; color: var(--text-muted); margin-top: 3px; }
-
-        /* ──────────────── EXPERIMENTAL PROJECTS CARDS ──────────────── */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        @media (min-width: 600px) {
-            .projects-grid { grid-template-columns: 1fr 1fr; }
-        }
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 26px;
-            transition: all var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .project-card:hover {
-            border-color: rgba(34, 197, 94, 0.2);
-            background: var(--bg-card-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-        }
-        .project-header { margin-bottom: 16px; }
-        .project-badge {
-            display: inline-block;
-            font-size: 0.68rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 50px;
-            margin-bottom: 12px;
-            letter-spacing: 0.02em;
-        }
-        .project-badge--wip { background: var(--orange-soft); color: var(--orange); }
-        .project-badge--explore { background: var(--purple-soft); color: var(--purple); }
-        .project-badge--growing { background: var(--green-soft); color: var(--green); }
-        
-        .project-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.2px; }
-        .project-card p { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
-        
-        .project-tech {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-family: monospace;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            padding-top: 14px;
-        }
-
-        /* ──────────────── SITE FOOTER ARCHITECTURE ──────────────── */
-        .site-footer {
-            text-align: center;
-            padding: 70px 24px;
-            border-top: 1px solid var(--border-subtle);
-            margin-top: 60px;
-            background-image: linear-gradient(to top, rgba(11, 17, 32, 0.2), transparent);
-        }
-        .footer-heart {
-            display: inline-block;
-            animation: beatEffect 1.6s ease-in-out infinite;
-            color: var(--orange);
-        }
-        @keyframes beatEffect {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.18); }
-        }
-        .footer-text { color: var(--text-muted); font-size: 0.88rem; max-width: 400px; margin: 10px auto 0; }
-
-        /* ──────────────── MOTION REVEAL CORE SYSTEM ──────────────── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-
-        /* ──────────────── MOBILE SYSTEM BREAKPOINTS ──────────────── */
-        @media (max-width: 680px) {
-            .nav-toggle { display: flex; }
-            .navbar { padding: 0 16px; }
-
-            /* Panel Sidebar Rapi Gaya Aplikasi Seluler Modern */
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: var(--bg-surface);
-                border-left: 1px solid var(--border-subtle);
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                padding: 48px 24px;
-                gap: 8px;
-                z-index: 999;
-                box-shadow: -15px 0 35px rgba(0, 0, 0, 0.6);
-                transition: right var(--transition-smooth);
-            }
-            .nav-links.active {
-                right: 0;
-            }
-            .nav-links li { width: 100%; }
-            .nav-links a {
-                display: block;
-                width: 100%;
-                font-size: 1rem;
-                padding: 12px 16px;
-                border-radius: var(--radius-md);
-                box-sizing: border-box;
-            }
-
-            /* Perbaikan Letak Tombol Silang di dalam daftar paling bawah */
-            .nav-close {
-                display: block !important;
-                background: none;
-                border: none;
-                color: var(--text-muted);
-                font-size: 2.2rem;
-                line-height: 1;
-                cursor: pointer;
-                align-self: center;
-                margin-top: auto;
-                padding: 12px;
-                transition: color var(--transition-smooth);
-            }
-            .nav-close:hover { color: var(--orange); }
-        }
-
-        @media (min-width: 681px) {
-            .nav-links { display: flex !important; position: static; background: none; box-shadow: none; width: auto; height: auto; flex-direction: row; }
-            .nav-close { display: none !important; }
-        }
-
-        /* Focus Ring Standard */
-        a:focus-visible, button:focus-visible {
-            outline: 2px solid var(--purple);
-            outline-offset: 4px;
-        }
-    </style>
+  <!-- CSS -->
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="ambient-orbs" aria-hidden="true">
-        <div class="orb orb--1"></div>
-        <div class="orb orb--2"></div>
-        <div class="orb orb--3"></div>
-    </div>
-    <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+<!-- Skip link -->
+<a href="#main" class="skip-link">Langsung ke konten utama</a>
 
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
-        <a href="#hero" class="nav-brand">
-            <span class="nav-brand-dot" aria-hidden="true"></span> Pandi Regun
-        </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks" role="menubar">
-            <li role="none"><a href="#about" role="menuitem">Tentang</a></li>
-            <li role="none"><a href="#journey" role="menuitem">Perjalanan</a></li>
-            <li role="none"><a href="#explore" role="menuitem">Eksplorasi</a></li>
-            <li role="none"><a href="#projects" role="menuitem">Proyek</a></li>
-            <li role="none"><a href="#ecosystem" role="menuitem">Ekosistem</a></li>
-            <button class="nav-close" id="navClose" aria-label="Tutup menu" style="display: none;">&times;</button>
-        </ul>
-    </nav>
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-<!-- ──────────────── HERO SECTION ──────────────── -->
-<section class="hero section" id="hero">
-    <div class="hero-inner reveal">
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Navigasi utama">
+  <a href="#top" class="nav-brand">
+  <img
+    src="assets/logo/pandiregun-logo-512.png"
+    alt="Logo Pandi Regun"
+    class="nav-logo"
+    width="40"
+    height="40"
+  >
+  <span>Pandi Regun</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">Tentang</a>
+    <a href="#pillars">Pilar</a>
+    <a href="#journey">Journey</a>
+    <a href="#projects">Proyek</a>
+    <a href="#community">Komunitas</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="#newsletter" class="btn btn-ghost">Hubungi</a>
+    <a href="#final" class="btn btn-primary"><span>Gabung</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
 
-        <!-- STATUS BADGE -->
-        <div class="hero-status-badge">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span>Sedang belajar & membangun sesuatu di internet</span>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigasi">
+  <a href="#about">Tentang</a>
+  <a href="#pillars">Pilar</a>
+  <a href="#journey">Journey</a>
+  <a href="#projects">Proyek</a>
+  <a href="#community">Komunitas</a>
+  <a href="#newsletter">Newsletter</a>
+  <a href="#final" class="btn btn-primary" style="margin-top:16px; justify-content:center;">Gabung Sekarang</a>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text reveal">
+        <div class="hero-badge">
+          <span class="dot" aria-hidden="true"></span>
+          Sekarang: sedang menulis &amp; membangun
         </div>
-
-        <!-- AVATAR -->
-        <div class="hero-avatar-wrap">
-            <div class="hero-avatar" aria-label="Identitas Pandi Regun">
-                PR
-            </div>
-        </div>
-
-        <!-- TITLE -->
-        <h1 class="hero-title">
-            Pandi Regun
+        <h1 id="hero-title">
+          Halo, saya <span class="grad-text">Pandi Regun</span>.
+           Perjalanan belajar digital saya — terbuka, jujur, tanpa polesan.
         </h1>
-
-        <!-- TYPING TEXT -->
-        <p class="hero-subtitle">
-            <span class="hero-subtitle-static">
-                Aku sedang
-            </span>
-
-            <span id="typedText"></span>
-
-            <span class="typed-cursor" aria-hidden="true">
-                |
-            </span>
+        <p class="hero-sub">
+          Keberhasilan, kegagalan, dan pelajaran di antaranya. Ini bukan showcase — ini jurnal seorang penjelajah digital.
         </p>
-
-        <!-- DESCRIPTION -->
-        <p class="hero-desc">
-            Tempatku mendokumentasikan proses belajar, 
-            ngulik teknologi, membangun proyek kecil, 
-            dan tumbuh pelan-pelan bareng orang-orang 
-            internet yang sama-sama penasaran.
-        </p>
-
-        <!-- ACTION BUTTON -->
-        <div class="hero-action-group">
-
-            <a href="https://blog.pandiregun.com/?m=1" class="hero-cta">
-                Mulai Kenalan
-                <span class="hero-cta-arrow" aria-hidden="true">
-                    →
-                </span>
-            </a>
-
-            <a href="#projects" class="hero-secondary-btn">
-                Lihat Proyek Belajar
-            </a>
-
+        <div class="hero-cta">
+          <a href="#journey" class="btn btn-primary">
+            <span>Lihat Perjalanan Saya</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#projects" class="btn btn-ghost">Intip Eksperimen</a>
         </div>
 
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong data-count="4" data-suffix="+">0</strong>
+            <span>Eksperimen Aktif</span>
+          </div>
+          <div class="hero-stat">
+            <strong data-count="6">0</strong>
+            <span>Arah Belajar</span>
+          </div>
+          <div class="hero-stat">
+            <strong>∞</strong>
+            <span>Rasa Ingin Tahu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <!-- Custom SVG Journey Illustration -->
+        <svg class="journey-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="orbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF7A00" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.9"/>
+            </linearGradient>
+            <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF7A00"/>
+              <stop offset="50%" stop-color="#7C3AED"/>
+              <stop offset="100%" stop-color="#22C55E"/>
+            </linearGradient>
+            <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FF7A00" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+              <feOffset dx="0" dy="4" result="offsetblur"/>
+              <feComponentTransfer><feFuncA type="linear" slope="0.3"/></feComponentTransfer>
+              <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Background glow -->
+          <circle cx="250" cy="250" r="220" fill="url(#glowGrad)"/>
+
+          <!-- Outer orbit rings -->
+          <circle cx="250" cy="250" r="200" fill="none" stroke="url(#pathGrad)" stroke-width="1.5" stroke-dasharray="3 8" opacity="0.4"/>
+          <circle cx="250" cy="250" r="150" fill="none" stroke="url(#pathGrad)" stroke-width="1.5" stroke-dasharray="3 8" opacity="0.5"/>
+          <circle cx="250" cy="250" r="100" fill="none" stroke="url(#pathGrad)" stroke-width="1.5" stroke-dasharray="3 8" opacity="0.6"/>
+
+          <!-- Curved journey path -->
+          <path d="M 80 400 Q 150 300 200 280 T 320 180 Q 380 140 430 80"
+                fill="none" stroke="url(#pathGrad)" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+          <!-- Milestone dots along path -->
+          <g filter="url(#softShadow)">
+            <circle cx="80" cy="400" r="14" fill="#22C55E"/>
+            <circle cx="80" cy="400" r="6" fill="#fff"/>
+
+            <circle cx="200" cy="280" r="14" fill="#FF7A00"/>
+            <circle cx="200" cy="280" r="6" fill="#fff"/>
+
+            <circle cx="320" cy="180" r="14" fill="#7C3AED"/>
+            <circle cx="320" cy="180" r="6" fill="#fff"/>
+
+            <circle cx="430" cy="80" r="16" fill="url(#orbGrad)"/>
+            <circle cx="430" cy="80" r="7" fill="#fff"/>
+          </g>
+
+          <!-- Central orb (the learner) -->
+          <g filter="url(#softShadow)">
+            <circle cx="250" cy="250" r="55" fill="url(#orbGrad)"/>
+            <circle cx="250" cy="250" r="55" fill="none" stroke="#fff" stroke-width="2" stroke-opacity="0.3"/>
+            <text x="250" y="260" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="800" font-size="42" fill="#fff">P</text>
+          </g>
+
+          <!-- Orbiting mini-icons -->
+          <g transform="translate(130 130)">
+            <circle r="22" fill="#fff" stroke="#FF7A00" stroke-width="2"/>
+            <path d="M -8 -2 L -2 4 L 8 -6" stroke="#FF7A00" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <g transform="translate(400 250)">
+            <circle r="22" fill="#fff" stroke="#7C3AED" stroke-width="2"/>
+            <path d="M -7 -4 L 7 -4 M -7 0 L 7 0 M -7 4 L 3 4" stroke="#7C3AED" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </g>
+          <g transform="translate(250 420)">
+            <circle r="22" fill="#fff" stroke="#22C55E" stroke-width="2"/>
+            <path d="M 0 -8 L 0 8 M -8 0 L 8 0" stroke="#22C55E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </g>
+
+          <!-- Floating particles -->
+          <circle cx="100" cy="150" r="3" fill="#FF7A00" opacity="0.7"/>
+          <circle cx="380" cy="380" r="4" fill="#7C3AED" opacity="0.7"/>
+          <circle cx="160" cy="380" r="3" fill="#22C55E" opacity="0.7"/>
+          <circle cx="420" cy="200" r="3" fill="#FF7A00" opacity="0.7"/>
+        </svg>
+
+        <div class="journey-card jc-1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+          <div><strong>Belajar Digital</strong><span>Setiap hari</span></div>
+        </div>
+        <div class="journey-card jc-2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+          <div><strong>Eksperimen AI</strong><span>Hands-on</span></div>
+        </div>
+        <div class="journey-card jc-3">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><strong>Komunitas</strong><span>Tumbuh bareng</span></div>
+        </div>
+        <div class="journey-card jc-4">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+          <div><strong>Dokumentasi</strong><span>Terbuka</span></div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ──────────────── ABOUT SECTION ──────────────── -->
-<section class="section" id="about">
-
-    <span class="section-label reveal">
-        Tentang Aku 🙌
-    </span>
-
-    <h2 class="section-title reveal">
-        Bukan Expert, Masih Sama-Sama Belajar
-    </h2>
-
-    <p class="section-subtitle reveal reveal-delay-1">
-        Aku cuma orang biasa yang suka penasaran sama dunia digital. 
-        Belajar dari internet, komunitas, eksperimen kecil, 
-        dan kadang dari error yang muncul tengah malam.
-    </p>
-
+<!-- ============ ABOUT + NOW ============ -->
+<section class="section about" id="about" aria-labelledby="about-title">
+  <div class="container">
     <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-visual-content">
+          <div class="about-quote">
+            "Saya tidak tahu semua jawaban. Tapi saya tahu rasanya stuck, bingung, dan mulai dari nol. Mungkin kamu juga. Jadi, mari kita jalan bareng."
+          </div>
+          <div class="about-meta">
+            <div class="about-avatar" aria-hidden="true">P</div>
+            <div class="about-meta-text">
+              <strong>Pandi Regun</strong>
+              <span>Penjelajah Digital &amp; Teman Seperjalanan</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <!-- CARD 1 -->
-        <div class="about-card reveal">
-            <span class="about-card-icon">🌱</span>
-
-            <h3>
-                Belajar Pelan-Pelan
-            </h3>
-
-            <p>
-                Aku belajar lewat dokumentasi internet, 
-                video, forum, komunitas, dan praktik langsung. 
-                Kadang berhasil, kadang error, 
-                tapi semuanya tetap jadi proses berkembang.
-            </p>
+      <div class="about-content reveal">
+        <span class="section-label">Tentang Saya</span>
+<h2 id="about-title">
+Belajar dari Nol. Mencatat Proses. Bertumbuh Bersama.
+</h2>
+        <p>
+          Saya belajar dari internet, dari komunitas, dari mencoba, dan dari banyak kesalahan. Tidak ada gelar formal di bidang ini. Yang ada hanyalah ribuan jam eksplorasi, ratusan tab terbuka, dan satu keyakinan: setiap orang bisa membangun sesuatu di internet.
+        </p>
+        <p>
+          Website ini adalah arsip perjalanan itu — dan undangan terbuka untukmu yang juga sedang berproses. Dari ngulik HTML pertama yang penuh error, eksplorasi AI tools yang bikin pusing, sampai mencoba membangun personal branding tanpa berpura-pura jadi expert. Semuanya saya catat di sini.
+        </p>
+        <div class="about-traits" aria-label="Karakter brand">
+          <span class="trait">🌱 Masih Belajar</span>
+          <span class="trait">📝 Mendokumentasikan Proses</span>
+          <span class="trait">🤝 Teman Seperjalanan</span>
+          <span class="trait">💡 Berbagi Pelajaran</span>
+          <span class="trait">🔗 Membangun Jembatan</span>
         </div>
 
-        <!-- CARD 2 -->
-        <div class="about-card reveal reveal-delay-1">
-            <span class="about-card-icon">🤝</span>
-
-            <h3>
-                Tumbuh Bareng Komunitas
-            </h3>
-
-            <p>
-                Aku percaya perkembangan terbaik lahir 
-                saat kita saling berbagi pengalaman, 
-                diskusi santai, dan belajar tanpa takut salah.
-            </p>
+        <!-- Now widget -->
+        <div class="now-widget">
+          <div class="now-widget-header">
+            <span class="dot" aria-hidden="true"></span>
+            <h4>Sedang Saya Kerjakan</h4>
+            <span class="now-updated">Update 2 Juni 2026</span>
+          </div>
+          <div class="now-list">
+            <div class="now-item">
+              <div class="now-item-label">📚 Belajar</div>
+              <div class="now-item-value">Astro & MDX — masih nyambungin konsep</div>
+            </div>
+            <div class="now-item">
+              <div class="now-item-label">🛠️ Bangun</div>
+              <div class="now-item-value">Knowledge Base — baru struktur awal</div>
+            </div>
+            <div class="now-item">
+              <div class="now-item-label">😵 Stuck</div>
+              <div class="now-item-value">Integrasi Discord bot — minta bantuan di komunitas</div>
+            </div>
+            <div class="now-item">
+              <div class="now-item-label">📖 Baca</div>
+              <div class="now-item-value">Atomic Habits — baca ulang, cari insight baru</div>
+            </div>
+          </div>
         </div>
-
-        <!-- CARD 3 -->
-        <div class="about-card reveal">
-            <span class="about-card-icon">🔬</span>
-
-            <h3>
-                Suka Bereksperimen
-            </h3>
-
-            <p>
-                Senang mencoba hal baru di dunia digital. 
-                Mulai dari coding, AI, desain, konten, 
-                sampai eksperimen kecil yang kadang 
-                malah melahirkan ide menarik.
-            </p>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="about-card reveal reveal-delay-1">
-            <span class="about-card-icon">🎯</span>
-
-            <h3>
-                Progres Lebih Penting
-            </h3>
-
-            <p>
-                Aku nggak ingin menunggu semuanya sempurna 
-                dulu untuk mulai berkarya. 
-                Sedikit demi sedikit tetap lebih baik 
-                daripada tidak melangkah sama sekali.
-            </p>
-        </div>
-
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ──────────────── JOURNEY SECTION ──────────────── -->
-<section class="section" id="journey">
+<!-- ============ PILLARS ============ -->
+<section class="section pillars" id="pillars" aria-labelledby="pillars-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Arah Belajar</span>
+        <h2>
+            Apa yang Sedang Saya Pelajari dan Bangun
+        </h2>
+      <p class="section-sub">Ini bukan pilar yang sudah kokoh. Ini adalah jalur-jalur yang sedang saya telusuri — penuh tanya, coba, dan catatan kecil di sepanjang jalan. Terbuka untuk siapa saja yang ingin ikut menjelajah.</p>
+    </div>
 
-    <span class="section-label reveal">
-        Perjalanan 🚀
-    </span>
+    <div class="pillar-grid reveal-stagger">
+      <article class="pillar">
+        <span class="pillar-num">01</span>
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Belajar Digital</h3>
+        <p>Saya sedang mencari cara belajar yang tidak membuat overwhelm. Dari dasar-dasar digital sampai kebiasaan yang bisa bertahan lama — bukan sekadar semangat sesaat.</p>
+      </article>
 
-    <h2 class="section-title reveal">
-        Proses yang Masih Terus Berjalan
-    </h2>
+      <article class="pillar">
+        <span class="pillar-num">02</span>
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2"/></svg>
+        </div>
+        <h3>Teknologi &amp; AI</h3>
+        <p>Saya bereksperimen dengan AI sebagai partner berpikir — bukan pengganti. Prompt pertama saya selalu jelek, dan itu normal. Di sini saya catat apa yang berhasil dan yang tidak.</p>
+      </article>
 
-    <p class="section-subtitle reveal reveal-delay-1">
-        Semua ini belum selesai. 
-        Masih banyak hal yang ingin aku pelajari, 
-        pahami, dan bangun pelan-pelan di internet.
-    </p>
+      <article class="pillar">
+        <span class="pillar-num">03</span>
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        </div>
+        <h3>Website &amp; Blogging</h3>
+        <p>Membangun rumah digital sendiri bukan soal kode semata. Saya belajar dari memilih domain, menulis konten yang bermakna, sampai merawatnya seperti kebun — pelan-pelan, konsisten.</p>
+      </article>
+
+      <article class="pillar">
+        <span class="pillar-num">04</span>
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Eksperimen Nyata</h3>
+        <p>Proyek kecil yang sering gagal, kadang berhasil. Semua saya bongkar di sini: apa yang salah, apa yang saya ulangi, dan kenapa. Karena kesalahan adalah materi belajar terbaik.</p>
+      </article>
+
+      <article class="pillar">
+        <span class="pillar-num">05</span>
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h3>Konten Kreator</h3>
+        <p>Belajar membuat konten yang jujur dan berguna — dari YouTube, TikTok, hingga tulisan panjang. Konten pertama saya buruk. Konten ke-50 juga masih buruk. Tapi di konten ke-51, saya mulai menemukan ritme.</p>
+      </article>
+
+      <article class="pillar">
+        <span class="pillar-num">06</span>
+        <div class="pillar-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Komunitas</h3>
+        <p>Bukan follower, tapi teman seperjalanan. Tempat bertanya tanpa takut dikira bodoh, dan berbagi tanpa perlu terlihat sempurna. Karena pertumbuhan terbaik terjadi bersama-sama.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section class="section journey" id="journey" aria-labelledby="journey-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Perjalanan Digital</span>
+      <h2 class="section-title" id="journey-title">Babak, Pelajaran, dan Bekas Luka</h2>
+      <p class="section-sub">Setiap fase meninggalkan jejak. Beberapa menyakitkan. Semuanya berharga. Tidak ada lompatan ajaib — hanya langkah kecil yang terus dilanjutkan, dicatat, dan dibagikan.</p>
+    </div>
 
     <div class="timeline">
-
-        <!-- ITEM 1 -->
-        <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                Awal Mulai
-            </div>
-
-            <div class="timeline-title">
-                Kenal Dunia Coding & Internet
-            </div>
-
-            <p class="timeline-desc">
-                Mulai penasaran sama website, 
-                struktur kode, sistem digital, 
-                dan bagaimana internet bekerja di balik layar.
-            </p>
+      <div class="tl-item reveal">
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <span class="tl-year">Babak 1 — Fondasi</span>
+          <h3>Baris HTML pertama dan syntax error yang mengajarkan ketelitian</h3>
+          <p>Saya mengetik baris HTML pertama dan menyadari bahwa membangun sesuatu dari nol terasa seperti menyusun puzzle raksasa. Syntax error pertama mengajarkan ketelitian. Layar kosong yang akhirnya menampilkan sesuatu mengajarkan kesabaran.</p>
+          <div class="tl-lesson">
+            <strong>💡 Pelajaran:</strong> Mulai dari yang kecil. Jangan malu pada kode pertama yang berantakan.
+          </div>
         </div>
-
-        <!-- ITEM 2 -->
-        <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                Mulai Dokumentasi
-            </div>
-
-            <div class="timeline-title">
-                Bangun Blog & Branding Pribadi
-            </div>
-
-            <p class="timeline-desc">
-                Membuat ruang digital sendiri 
-                untuk menulis catatan belajar, 
-                eksperimen proyek, dan perjalanan berkembang.
-            </p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <span class="tl-year">Babak 2 — Eksplorasi</span>
+          <h3>Proyek lahir dan mati — belajar bahwa ide tanpa eksekusi hanya angan-angan</h3>
+          <p>Proyek kecil lahir dan mati. Beberapa selesai, banyak yang terbengkalai. Saya belajar bahwa ide tanpa eksekusi hanyalah angan-angan, tapi eksekusi tanpa refleksi hanyalah kesibukan.</p>
+          <div class="tl-lesson">
+            <strong>💡 Pelajaran:</strong> Kecepatan tidak selalu berarti kemajuan. Refleksi adalah bagian dari produktivitas.
+          </div>
         </div>
-
-        <!-- ITEM 3 -->
-        <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                Eksplorasi Baru
-            </div>
-
-            <div class="timeline-title">
-                Mulai Ngulik AI & Otomasi
-            </div>
-
-            <p class="timeline-desc">
-                Belajar memahami AI, prompt engineering, 
-                dan cara teknologi bisa membantu 
-                proses berpikir maupun produktivitas.
-            </p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <span class="tl-year">Babak 3 — Keberanian</span>
+          <h3>Video pertama saya buruk — tapi satu komentar masuk dan saya sadar dampak tidak menunggu kesempurnaan</h3>
+          <p>Saya mulai membuat konten. Suara sendiri terdengar asing. Video pertama buruk. Tapi satu komentar masuk: "Terima kasih, saya jadi ngerti." Saya sadar, ini bukan tentang sempurna — tapi tentang berbagi.</p>
+          <div class="tl-lesson">
+            <strong>💡 Pelajaran:</strong> Mulai sebelum siap. Dampak tidak menunggu kesempurnaan.
+          </div>
         </div>
-
-        <!-- ITEM 4 -->
-        <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-year">
-                Hari Ini
-            </div>
-
-            <div class="timeline-title">
-                Belajar Bangun Aplikasi & Sistem
-            </div>
-
-            <p class="timeline-desc">
-                Sedang fokus memahami pengembangan aplikasi, 
-                manajemen data, serta membangun 
-                proyek-proyek kecil secara terbuka.
-            </p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot" aria-hidden="true"></div>
+        <div class="tl-card">
+          <span class="tl-year">Babak 4 — Identitas</span>
+          <h3>Pandiregun lahir — keputusan untuk tidak berpura-pura menjadi expert</h3>
+          <p>Pandiregun lahir. Bukan sekadar nama, tapi wadah untuk seluruh eksperimen dan refleksi. Saya memutuskan untuk tidak berpura-pura menjadi expert. Saya memilih menjadi teman seperjalanan.</p>
+          <div class="tl-lesson">
+            <strong>💡 Pelajaran:</strong> Personal branding bukan tentang pencitraan. Ini tentang menemukan suara dan konsisten dengannya.
+          </div>
         </div>
-
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot active" aria-hidden="true"></div>
+        <div class="tl-card">
+          <span class="tl-year">Babak 5 — Sekarang</span>
+          <h3>Menghubungkan semua titik — dan ini bukan puncak, ini awal</h3>
+          <p>Menghubungkan semua titik: website, konten, komunitas, kode. Ini bukan puncak. Ini adalah awal dari ekosistem belajar kolektif. Dan kamu adalah bagian darinya.</p>
+          <div class="tl-lesson">
+            <strong>💡 Pelajaran (sedang berlangsung):</strong> Perjalanan tidak pernah selesai. Dan itulah keindahannya.
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ──────────────── EXPLORE SECTION ──────────────── -->
-<section class="section" id="explore">
+<!-- ============ PROJECTS ============ -->
+<section class="section projects" id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Eksperimen</span>
+      <h2 class="section-title" id="projects-title">Eksperimen yang Sedang Hidup</h2>
+      <p class="section-sub">Proyek-proyek ini belum selesai. Sebagian mungkin akan gagal. Di sinilah saya menyimpannya — lengkap dengan bekas kesalahan dan perbaikannya. Silakan pelajari, pakai, atau beri masukan.</p>
+    </div>
 
-    <span class="section-label reveal">
-        Lagi Dikulik 🔍
-    </span>
+    <div class="project-filters reveal" role="tablist" aria-label="Filter eksperimen">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="content">Konten</button>
+      <button class="filter-btn" data-filter="data">Data</button>
+      <button class="filter-btn" data-filter="ai">AI</button>
+    </div>
 
-    <h2 class="section-title reveal">
-        Hal-Hal yang Lagi Aku Pelajari
-    </h2>
+    <div class="project-grid reveal-stagger">
 
-    <p class="section-subtitle reveal reveal-delay-1">
-        Kadang belajar coding, 
-        kadang eksperimen AI, 
-        kadang juga mikirin gimana caranya 
-        bikin sesuatu yang bermanfaat di internet.
-    </p>
+      <!-- Eksperimen 1: Pandiregun Web -->
+      <article class="project" data-category="web">
+        <div class="project-top">
+          <div class="project-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+          <span class="project-status status-live">Sedang Dikembangkan</span>
+        </div>
+        <h3>Website Pandiregun</h3>
+        <p class="project-desc">Ruang digital pribadi yang sedang Anda jelajahi sekarang. Masih banyak yang harus diperbaiki — terutama di mobile.</p>
 
-    <div class="ecosystem-grid">
-
-        <div class="eco-card reveal">
-            <span class="eco-card-icon">💻</span>
-            <div class="eco-card-name">
-                Web Development
-            </div>
-            <div class="eco-card-handle">
-                HTML • CSS • PHP
-            </div>
+        <div class="project-section">
+          <h4>✅ Yang Sudah Berhasil</h4>
+          <ul>
+            <li>Halaman utama selesai dengan struktur konten yang merepresentasikan identitas</li>
+            <li>Semua section terpasang: Hero, About, Journey, Projects, Community, Manifesto</li>
+          </ul>
         </div>
 
-        <div class="eco-card reveal">
-            <span class="eco-card-icon">📱</span>
-            <div class="eco-card-name">
-                Mobile App
-            </div>
-            <div class="eco-card-handle">
-                Android Experiment
-            </div>
+        <div class="project-section">
+          <h4>❌ Kesalahan Berharga</h4>
+          <p>"Saya terjebak di desain terlalu lama. 3 minggu memilih palet warna dan layout, padahal konten belum ada. Sekarang saya tulis dulu, desain belakangan. Content-first approach."</p>
         </div>
 
-        <div class="eco-card reveal reveal-delay-1">
-            <span class="eco-card-icon">🤖</span>
-            <div class="eco-card-name">
-                AI Exploration
-            </div>
-            <div class="eco-card-handle">
-                Prompt & Workflow
-            </div>
+        <div class="project-section">
+          <h4>🔁 Yang Akan Saya Ulangi</h4>
+          <p>Content-first approach. Tulis semua copy, baru visual. MVP dulu, fitur belakangan.</p>
         </div>
 
-        <div class="eco-card reveal reveal-delay-1">
-            <span class="eco-card-icon">🧠</span>
-            <div class="eco-card-name">
-                Digital Thinking
-            </div>
-            <div class="eco-card-handle">
-                Sistem & Ide
-            </div>
+        <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span><span class="tag">Responsive</span></div>
+        <div class="project-footer">
+          <span class="project-note">📅 Terakhir diperbarui: 2 Juni 2026</span>
+          <a href="#" class="project-link">Lihat proses selengkapnya <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Eksperimen 2: Blog Pandiregun -->
+      <article class="project" data-category="content">
+        <div class="project-top">
+          <div class="project-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+          <span class="project-status status-live">Sedang Dikembangkan</span>
+        </div>
+        <h3>Blog Pandiregun</h3>
+        <p class="project-desc">Catatan belajar, refleksi, dan tutorial yang ditulis supaya mudah dipahami — bahkan oleh saya sendiri saat baca ulang sebulan kemudian.</p>
+
+        <div class="project-section">
+          <h4>✅ Yang Sudah Berhasil</h4>
+          <ul>
+            <li>Konten pertama terbit: "Kesalahan 3 Bulan Pertamaku Belajar AI"</li>
+            <li>Struktur kategori dan tag sudah rapi untuk navigasi</li>
+          </ul>
         </div>
 
-        <div class="eco-card reveal">
-            <span class="eco-card-icon">🎥</span>
-            <div class="eco-card-name">
-                Content Creator
-            </div>
-            <div class="eco-card-handle">
-                Branding & Story
-            </div>
+        <div class="project-section">
+          <h4>❌ Kesalahan Berharga</h4>
+          <p>"Saya menulis terlalu panjang dan berbelit. Artikel pertama 3.000 kata, padahal intinya cuma 800 kata. Pembaca bukan butuh ensiklopedia — mereka butuh clarity."</p>
         </div>
 
-        <div class="eco-card reveal">
-            <span class="eco-card-icon">☕</span>
-            <div class="eco-card-name">
-                Daily Reflection
-            </div>
-            <div class="eco-card-handle">
-                Catatan & Proses
-            </div>
+        <div class="project-section">
+          <h4>🔁 Yang Akan Saya Ulangi</h4>
+          <p>Tulis draft, diamkan semalam, edit tanpa ampun. Kalau bisa dipotong setengah tanpa kehilangan makna — potong.</p>
         </div>
+
+        <div class="project-tags"><span class="tag">Artikel</span><span class="tag">Tutorial</span><span class="tag">Refleksi</span></div>
+        <div class="project-footer">
+          <span class="project-note">📅 Terakhir diperbarui: 28 Mei 2026</span>
+          <a href="#" class="project-link">Baca blog <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Eksperimen 3: Data Barang XML -->
+      <article class="project" data-category="data">
+        <div class="project-top">
+          <div class="project-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></svg></div>
+          <span class="project-status status-dev">Sedang Dieksplorasi</span>
+        </div>
+        <h3>Data Barang XML</h3>
+        <p class="project-desc">Eksperimen struktur data berbasis XML — latihan memahami format, schema, dan integrasi sistem. Dimulai dari contoh sederhana: data inventaris barang.</p>
+
+        <div class="project-section">
+          <h4>✅ Yang Sudah Berhasil</h4>
+          <ul>
+            <li>Struktur dasar XML untuk data barang selesai</li>
+            <li>Validasi schema dasar berfungsi tanpa error</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h4>❌ Kesalahan Berharga</h4>
+          <p>"Saya terlalu cepat lompat ke integrasi sebelum memahami dasar schema. Akhirnya stuck 2 hari karena salah namespace. Kembali ke fundamentals dulu."</p>
+        </div>
+
+        <div class="project-section">
+          <h4>🔁 Yang Akan Saya Ulangi</h4>
+          <p>Pahami fundamentals sebelum integrasi. Satu file XML sederhana yang berfungsi > sepuluh file yang saling terkait tapi error.</p>
+        </div>
+
+        <div class="project-tags"><span class="tag">XML</span><span class="tag">Schema</span><span class="tag">Data</span></div>
+        <div class="project-footer">
+          <span class="project-note">📅 Terakhir diperbarui: 20 Mei 2026</span>
+          <a href="#" class="project-link">Lihat repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Eksperimen 4: AI Assistant -->
+      <article class="project" data-category="ai">
+        <div class="project-top">
+          <div class="project-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+          <span class="project-status status-soon">Sedang Dipelajari</span>
+        </div>
+        <h3>AI Assistant Pribadi</h3>
+        <p class="project-desc">Asisten AI yang saya bangun untuk membantu dokumentasi, riset, dan workflow harian. Masih tahap belajar — belum mulai ngoding serius.</p>
+
+        <div class="project-section">
+          <h4>✅ Yang Sudah Berhasil</h4>
+          <ul>
+            <li>Riset awal tentang AI workflow tools selesai</li>
+            <li>Beberapa eksperimen kecil dengan n8n dan ChatGPT API</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h4>❌ Kesalahan Berharga</h4>
+          <p>"Saya overthinking sebelum mulai. Terlalu lama membandingkan tools dan baca dokumentasi tanpa hands-on. Padahal satu jam eksperimen langsung lebih berharga dari 10 jam riset pasif."</p>
+        </div>
+
+        <div class="project-section">
+          <h4>🔁 Yang Akan Saya Ulangi</h4>
+          <p>MVP dulu — satu workflow kecil yang berfungsi. Fitur canggih nanti, setelah dasar berjalan.</p>
+        </div>
+
+        <div class="project-tags"><span class="tag">AI</span><span class="tag">Automation</span><span class="tag">n8n</span></div>
+        <div class="project-footer">
+          <span class="project-note">📅 Mulai eksplorasi: Mei 2026</span>
+          <a href="#" class="project-link">Ikuti perkembangannya <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Eksperimen 5: YouTube Series -->
+      <article class="project" data-category="content">
+        <div class="project-top">
+          <div class="project-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <span class="project-status status-live">Sedang Dikembangkan</span>
+        </div>
+        <h3>YouTube Series — Perjalanan Belajar</h3>
+        <p class="project-desc">Seri video pendek tentang perjalanan belajar digital. Jujur, tidak dipoles, dan mudah diikuti — termasuk bagian yang biasanya orang sembunyikan.</p>
+
+        <div class="project-section">
+          <h4>✅ Yang Sudah Berhasil</h4>
+          <ul>
+            <li>Video pertama terbit — tentang "Kenapa Saya Mulai Belajar dari Nol"</li>
+            <li>Format pendek 5-8 menit lebih mudah diproduksi secara konsisten</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h4>❌ Kesalahan Berharga</h4>
+          <p>"Saya terlalu fokus pada editing dan thumbnail keren. Video pertama diedit 5 hari, hasilnya tetap biasa saja. Sekarang saya batasi editing maksimal 2 jam. Kalau jelek, ya jelek — yang penting kontennya jujur."</p>
+        </div>
+
+        <div class="project-section">
+          <h4>🔁 Yang Akan Saya Ulangi</h4>
+          <p>Konten > produksi. Rekam dulu, upload, lihat respons. Iterasi berdasarkan masukan nyata, bukan asumsi sendiri.</p>
+        </div>
+
+        <div class="project-tags"><span class="tag">Video</span><span class="tag">Edukasi</span><span class="tag">Behind the Scenes</span></div>
+        <div class="project-footer">
+          <span class="project-note">📅 Episode terbaru: 1 Juni 2026</span>
+          <a href="#" class="project-link">Tonton di YouTube <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Eksperimen 6: Knowledge Base -->
+      <article class="project" data-category="web">
+        <div class="project-top">
+          <div class="project-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+          <span class="project-status status-dev">Sedang Dieksplorasi</span>
+        </div>
+        <h3>Knowledge Base</h3>
+        <p class="project-desc">Pustaka terbuka berisi ringkasan, catatan, dan sumber belajar yang saya kumpulkan selama perjalanan. Seperti wiki pribadi — tapi terbuka untuk umum.</p>
+
+        <div class="project-section">
+          <h4>✅ Yang Sudah Berhasil</h4>
+          <ul>
+            <li>Struktur awal knowledge base dengan Astro & MDX berjalan</li>
+            <li>Beberapa catatan mentah sudah berhasil dikonversi ke format yang bisa dibaca</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h4>❌ Kesalahan Berharga</h4>
+          <p>"Saya meremehkan kompleksitas navigasi. Catatan yang saling terkait butuh sistem link yang tidak berantakan. Saya sekarang memecah jadi kluster-kluster kecil, tidak langsung bangun seluruh peta."</p>
+        </div>
+
+        <div class="project-section">
+          <h4>🔁 Yang Akan Saya Ulangi</h4>
+          <p>Bangun per kluster (misal: "AI", "Web Dev", "Personal Branding"), bukan sekaligus. Validasi struktur dengan 5 catatan dulu sebelum tambah 50.</p>
+        </div>
+
+        <div class="project-tags"><span class="tag">Astro</span><span class="tag">MDX</span><span class="tag">Wiki</span></div>
+        <div class="project-footer">
+          <span class="project-note">📅 Terakhir diperbarui: 1 Juni 2026</span>
+          <a href="#" class="project-link">Sedang dibangun — intip progressnya <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
 
     </div>
+  </div>
 </section>
 
-<!-- ──────────────── PROJECT SECTION ──────────────── -->
-<section class="section" id="projects">
-
-    <span class="section-label reveal">
-        Proyek Belajar 🛠️
-    </span>
-
-    <h2 class="section-title reveal">
-        Dibangun Pelan-Pelan Secara Terbuka
-    </h2>
-
-    <p class="section-subtitle reveal reveal-delay-1">
-        Semua proyek ini lahir dari rasa penasaran, 
-        kebutuhan belajar, dan keinginan untuk 
-        memahami cara kerja dunia digital lebih dalam.
-    </p>
-
-    <div class="projects-grid">
-
-        <!-- PROJECT 1 -->
-        <div class="project-card reveal">
-
-            <div class="project-header">
-
-                <span class="project-badge project-badge--wip">
-                    Sedang Dibangun
-                </span>
-
-                <h3>
-                    Sistem UMKM Sederhana
-                </h3>
-
-            </div>
-
-            <p>
-                Proyek belajar membuat sistem 
-                pengelolaan barang, stok, supplier, 
-                dan aktivitas usaha kecil 
-                supaya lebih rapi dan mudah dipantau.
-            </p>
-
-            <div class="project-tech">
-                PHP • JSON • XML • Modular System
-            </div>
-
-        </div>
-
-        <!-- PROJECT 2 -->
-        <div class="project-card reveal reveal-delay-1">
-
-            <div class="project-header">
-
-                <span class="project-badge project-badge--explore">
-                    Eksperimen
-                </span>
-
-                <h3>
-                    Aplikasi Catatan Mobile
-                </h3>
-
-            </div>
-
-            <p>
-                Eksperimen membuat aplikasi catatan sederhana 
-                sambil memahami layout, penyimpanan data, 
-                dan cara menghadapi error sistem Android.
-            </p>
-
-            <div class="project-tech">
-                Java • DroidScript • Android Logic
-            </div>
-
-        </div>
-
-        <!-- PROJECT 3 -->
-        <div class="project-card reveal">
-
-            <div class="project-header">
-
-                <span class="project-badge project-badge--growing">
-                    Terus Berkembang
-                </span>
-
-                <h3>
-                    Blog & Personal Branding
-                </h3>
-
-            </div>
-
-            <p>
-                Tempat dokumentasi perjalanan belajar, 
-                eksperimen konten, dan usaha membangun 
-                identitas digital secara perlahan di internet.
-            </p>
-
-            <div class="project-tech">
-                Blogger • HTML • SEO • Content System
-            </div>
-
-        </div>
-
-        <!-- PROJECT 4 -->
-        <div class="project-card reveal reveal-delay-1">
-
-            <div class="project-header">
-
-                <span class="project-badge project-badge--explore">
-                    Riset Ide
-                </span>
-
-                <h3>
-                    Simulasi Logika Digital
-                </h3>
-
-            </div>
-
-            <p>
-                Tempat mencoba memahami alur sistem, 
-                pola logika digital, dan bagaimana 
-                teknologi komunitas bisa berkembang bersama.
-            </p>
-
-            <div class="project-tech">
-                Logic Research • Web3 • System Flow
-            </div>
-
-        </div>
-
+<!-- ============ SKILLS / STACK ============ -->
+<section class="section skills" id="skills" aria-labelledby="skills-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Stack</span>
+      <h2 class="section-title" id="skills-title">Alat yang Saya Gunakan</h2>
+      <p class="section-sub">Tools dan teknologi yang sedang saya pelajari dan pakai dalam proyek sehari-hari.</p>
     </div>
+
+    <div class="skills-wrap">
+      <div class="skill-group reveal">
+        <h3>Pengembangan</h3>
+        <div class="skill-list">
+          <span class="skill-chip">HTML5</span>
+          <span class="skill-chip">CSS3</span>
+          <span class="skill-chip">JavaScript</span>
+          <span class="skill-chip">Astro</span>
+          <span class="skill-chip">Next.js</span>
+          <span class="skill-chip">Tailwind CSS</span>
+          <span class="skill-chip">Git</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Kreativitas &amp; Konten</h3>
+        <div class="skill-list">
+          <span class="skill-chip">Figma</span>
+          <span class="skill-chip">Canva</span>
+          <span class="skill-chip">CapCut</span>
+          <span class="skill-chip">Notion</span>
+          <span class="skill-chip">Obsidian</span>
+          <span class="skill-chip">Markdown</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>AI &amp; Produktivitas</h3>
+        <div class="skill-list">
+          <span class="skill-chip">ChatGPT</span>
+          <span class="skill-chip">Claude</span>
+          <span class="skill-chip">Gemini</span>
+          <span class="skill-chip">Perplexity</span>
+          <span class="skill-chip">Zapier</span>
+          <span class="skill-chip">Make.com</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Platform &amp; Hosting</h3>
+        <div class="skill-list">
+          <span class="skill-chip">Vercel</span>
+          <span class="skill-chip">Netlify</span>
+          <span class="skill-chip">Cloudflare</span>
+          <span class="skill-chip">GitHub</span>
+          <span class="skill-chip">WordPress</span>
+          <span class="skill-chip">Ghost</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ──────────────── FOOTER ──────────────── -->
-<footer class="site-footer">
+<!-- ============ COMMUNITY ============ -->
+<section class="section community" id="community" aria-labelledby="community-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Komunitas</span>
+      <h2>Temukan Teman Seperjalanan</h2>
+      <p class="section-sub">Pilih platform favoritmu. Mari saling menyapa, berbagi, dan tumbuh bareng di sana.</p>
+    </div>
 
-    <p style="font-weight:700;font-size:1.05rem;letter-spacing:-0.3px;">
-        Pandi Regun
-    </p>
+    <div class="community-grid reveal-stagger">
+      <a href="#" class="social" aria-label="X Twitter Pandi Regun">
+        <div class="social-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7 8 8 12h-6l-5-7-6 7H2l8-9L2 2h6l4 6z"/></svg></div>
+        <span class="social-name">X (Twitter)</span>
+        <span class="social-handle">@pandiregun</span>
+      </a>
+      <a href="#" class="social" aria-label="YouTube Pandi Regun">
+        <div class="social-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.7-1-2.4c-.9-.9-1.9-.9-2.3-1C16.6 3.2 12 3.2 12 3.2s-4.6 0-7.7.4c-.4.1-1.4.1-2.3 1C1.2 5.3 1 7 1 7S.8 9 .8 11v1.8c0 2 .2 4 .2 4s.2 1.7 1 2.4c.9.9 2.1.9 2.7 1 1.9.2 8.3.3 8.3.3s4.6 0 7.7-.4c.4-.1 1.4-.1 2.3-1 .8-.7 1-2.4 1-2.4s.2-2 .2-4V11c0-2-.2-4-.2-4zM10 14.6V8.3l5.2 3.2L10 14.6z"/></svg></div>
+        <span class="social-name">YouTube</span>
+        <span class="social-handle">@pandiregun</span>
+      </a>
+      <a href="#" class="social" aria-label="TikTok Pandi Regun">
+        <div class="social-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.3c-.4-.5-1-.8-1.6-.9-1-.2-3.2-.3-6-.3s-5 .1-6 .3c-.6.1-1.2.4-1.6.9C4 6.8 3.8 7.9 3.7 9.9c-.1 1-.1 1.8-.1 2.1s0 1.1.1 2.1c.1 2 .3 3.1.8 3.6.4.5 1 .8 1.6.9 1 .2 3.2.3 6 .3s5-.1 6-.3c.6-.1 1.2-.4 1.6-.9.5-.5.7-1.6.8-3.6.1-1 .1-1.8.1-2.1s0-1.1-.1-2.1c-.2-2-.4-3.1-.9-3.6zM10 15.1V8.9l5.2 3.1-5.2 3.1z"/></svg></div>
+        <span class="social-name">TikTok</span>
+        <span class="social-handle">@pandiregun</span>
+      </a>
+      <a href="#" class="social" aria-label="Instagram Pandi Regun">
+        <div class="social-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div>
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@pandiregun</span>
+      </a>
+      <a href="#" class="social" aria-label="Telegram Pandi Regun">
+        <div class="social-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L2 10l7 3 3 7 10-18z"/></svg></div>
+        <span class="social-name">Telegram</span>
+        <span class="social-handle">t.me/pandiregun</span>
+      </a>
+      <a href="#" class="social" aria-label="Discord Pandi Regun">
+        <div class="social-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4c-2-.9-4.1-1.5-6.3-1.8-.3.5-.6 1.2-.8 1.8-2.3-.3-4.6-.3-6.9 0-.2-.6-.5-1.3-.8-1.8C3 2.5.9 3.1.1 4-2.3 7.5-2.9 11-2.6 14.4c2.6 1.9 5.1 3.1 7.6 3.8.6-.8 1.1-1.7 1.6-2.7-.8-.3-1.7-.7-2.4-1.2.2-.1.4-.3.6-.4 4.5 2.1 9.4 2.1 13.8 0 .2.1.4.3.6.4-.8.5-1.6.9-2.4 1.2.4 1 .9 1.9 1.6 2.7 2.5-.8 5-1.9 7.6-3.8.4-4-.6-7.5-2.9-10.4zM8 12.3c-1.2 0-2.2-1.1-2.2-2.5S6.8 7.3 8 7.3s2.2 1.1 2.2 2.5-1 2.5-2.2 2.5zm8 0c-1.2 0-2.2-1.1-2.2-2.5s1-2.5 2.2-2.5 2.2 1.1 2.2 2.5-1 2.5-2.2 2.5z" transform="translate(2 1)"/></svg></div>
+        <span class="social-name">Discord</span>
+        <span class="social-handle">Komunitas PR</span>
+      </div>
+      <a href="#" class="social" aria-label="Blog Pandi Regun">
+        <div class="social-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+        <span class="social-name">Blog</span>
+        <span class="social-handle">pandiregun.com/blog</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <p class="footer-text">
-        Belajar, gagal, memperbaiki, lalu mencoba lagi 
-        <span class="footer-heart">❤️</span>
-        Sedikit demi sedikit membangun sesuatu 
-        yang bermakna di internet.
-    </p>
+<!-- ============ NEWSLETTER ============ -->
+<section class="section newsletter" id="newsletter" aria-labelledby="newsletter-title">
+  <div class="container">
+    <div class="newsletter-card reveal">
+      <span class="section-label">Newsletter</span>
+      <h2 id="newsletter-title">Ikuti Catatan Mingguan</h2>
+      <p>Satu email setiap minggu — berisi apa yang saya pelajari, proyek yang sedang jalan, dan sumber menarik untuk kamu eksplorasi.</p>
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="newsletterEmail" placeholder="email@kamu.com" aria-label="Alamat email" required />
+        <button type="submit" class="btn btn-primary"><span>Langganan</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+      <div class="newsletter-msg" id="newsletterMsg" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
 
-    <p class="footer-text" style="margin-top:16px;font-size:0.78rem;color:var(--text-muted);">
-        &copy; 2026 Pandi Regun — 
-        Progres kecil setiap hari tetap berarti.
-    </p>
+<!-- ============ MANIFESTO ============ -->
+<section class="section manifesto" id="manifesto" aria-labelledby="manifesto-title">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Manifesto</span>
+      <h2 id="manifesto-title">Kami percaya belajar itu <span class="grad-text">perjalanan terbuka</span> — bukan perlombaan tertutup.</h2>
+    </div>
 
+    <div class="manifesto-grid reveal-stagger">
+      <div class="manifesto-point">
+        <h4>Belajar Terbuka</h4>
+        <p>Setiap langkah, termasuk yang gagal, layak dicatat dan dibagikan. Pengetahuan bertambah saat ia mengalir.</p>
+      </div>
+      <div class="manifesto-point">
+        <h4>Bertumbuh Bersama</h4>
+        <p>Tidak ada yang tumbuh sendirian. Komunitas yang sehat adalah tempat kita saling menyiram, bukan saling membandingkan.</p>
+      </div>
+      <div class="manifesto-point">
+        <h4>Dokumentasi Jujur</h4>
+        <p>Proses nyata lebih berharga dari hasil yang dipoles. Catatan hari ini adalah peta untuk yang datang kemudian.</p>
+      </div>
+      <div class="manifesto-point">
+        <h4>Dampak Positif</h4>
+        <p>Teknologi hanya alat. Yang membuatnya bermakna adalah niat baik dan keberanian untuk berbagi dengan sesama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta" id="final" aria-labelledby="final-title">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2>Perjalanan Ini Masih Panjang. Mau Jalan Bareng?</h2>
+      <p>Tidak perlu jadi ahli untuk mulai. Cukup punya rasa ingin tahu — sisanya kita jalanin bareng.</p>
+      <div class="cta-buttons">
+        <a href="#journey" class="btn btn-primary">
+          <span>Ikuti Perjalanan</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#community" class="btn btn-ghost">Gabung Komunitas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-top">
+          <span class="nav-logo" aria-hidden="true">P</span>
+          <strong>Pandi Regun</strong>
+        </div>
+        <p>Belajar Bareng, Tumbuh Bareng. Ruang belajar terbuka untuk mendokumentasikan perjalanan memahami teknologi dan dunia digital.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#pillars">Pilar</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#projects">Proyek</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Telegram</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <ul>
+          <li><a href="mailto:halo@pandiregun.com">halo@pandiregun.com</a></li>
+          <li><a href="#">Media Kit</a></li>
+          <li><a href="#">Kolaborasi</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Pandi Regun. Dibangun dengan rasa ingin tahu 🌱</span>
+      <div class="footer-social">
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.7-1-2.4c-.9-.9-1.9-.9-2.3-1C16.6 3.2 12 3.2 12 3.2s-4.6 0-7.7.4c-.4.1-1.4.1-2.3 1C1.2 5.3 1 7 1 7S.8 9 .8 11v1.8c0 2 .2 4 .2 4s.2 1.7 1 2.4c.9.9 2.1.9 2.7 1 1.9.2 8.3.3 8.3.3s4.6 0 7.7-.4c.4-.1 1.4-.1 2.3-1 .8-.7 1-2.4 1-2.4s.2-2 .2-4V11c0-2-.2-4-.2-4zM10 14.6V8.3l5.2 3.2L10 14.6z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7 8 8 12h-6l-5-7-6 7H2l8-9L2 2h6l4 6z"/></svg></a>
+        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L2 10l7 3 3 7 10-18z"/></svg></a>
+      </div>
+    </div>
+  </div>
 </footer>
 
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
+  <script src="/js/main.js"></script>
 
-    <script>
-        (function() {
-            // ──────────────── ELEMENT SELECTOR ────────────────
-            const navbar = document.getElementById('navbar');
-            const navToggle = document.getElementById('navToggle');
-            const navLinks = document.getElementById('navLinks');
-            const navClose = document.getElementById('navClose');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            const typedTextEl = document.getElementById('typedText');
-            const allNavLinks = navLinks.querySelectorAll('a');
-
-            // ──────────────── DYNAMIC TYPING CONTROLLER ────────────────
-            const phrases = [
-                    'belajar coding pelan-pelan.',
-                    'ngulik AI & teknologi baru.',
-                    'membangun proyek kecil.',
-                    'berbagi proses di internet.',
-                    'tumbuh bareng komunitas.',
-                    'mencari versi terbaik diri sendiri.'
-            ];
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let typeSpeed = 80;
-
-            function processTyping() {
-                const currentText = phrases[phraseIndex];
-                if (isDeleting) {
-                    charIndex--;
-                    typeSpeed = 35;
-                } else {
-                    charIndex++;
-                    typeSpeed = 85;
-                }
-                typedTextEl.textContent = currentText.substring(0, charIndex);
-
-                if (!isDeleting && charIndex === currentText.length) {
-                    typeSpeed = 2200; // Penahanan kata selesai terketik
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    typeSpeed = 300;
-                }
-                setTimeout(processTyping, typeSpeed);
-            }
-            processTyping();
-
-            // ──────────────── SCROLL SMART NAVBAR DETECTOR ────────────────
-            function triggerNavbarState() {
-                if (window.scrollY > 30) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            }
-            window.addEventListener('scroll', triggerNavbarState, { passive: true });
-            triggerNavbarState();
-
-            // ──────────────── OVERLAY INTERACTION MANAGEMENT ────────────────
-            function expandMobileMenu() {
-                navLinks.classList.add('active');
-                mobileOverlay.classList.add('active');
-                navToggle.classList.add('active');
-                navToggle.setAttribute('aria-expanded', 'true');
-                document.body.classList.add('menu-open');
-            }
-
-            function collapseMobileMenu() {
-                navLinks.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                navToggle.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('menu-open');
-            }
-
-            navToggle.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    collapseMobileMenu();
-                } else {
-                    expandMobileMenu();
-                }
-            });
-
-            navClose.addEventListener('click', collapseMobileMenu);
-            mobileOverlay.addEventListener('click', collapseMobileMenu);
-
-            allNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) collapseMobileMenu();
-                });
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                    collapseMobileMenu();
-                    navToggle.focus();
-                }
-            });
-
-            // ──────────────── SCROLL REVEAL ENGINE ────────────────
-            const revealEls = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            }, { root: null, rootMargin: '0px 0px -40px 0px', threshold: 0.1 });
-
-            revealEls.forEach(el => revealObserver.observe(el));
-        })();
-    </script>
 </body>
 </html>
